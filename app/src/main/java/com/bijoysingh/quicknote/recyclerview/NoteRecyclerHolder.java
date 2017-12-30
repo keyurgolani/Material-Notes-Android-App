@@ -18,6 +18,7 @@ import com.bijoysingh.quicknote.activities.sheets.NoteOptionsBottomSheet;
 import com.bijoysingh.quicknote.database.Note;
 import com.bijoysingh.quicknote.items.NoteRecyclerItem;
 import com.bijoysingh.quicknote.items.RecyclerItem;
+import com.bijoysingh.quicknote.utils.FontUtilsKt;
 import com.github.bijoysingh.starter.prefs.DataStore;
 import com.github.bijoysingh.starter.recyclerview.RecyclerViewHolder;
 import com.github.bijoysingh.starter.util.DateFormatter;
@@ -77,6 +78,9 @@ public class NoteRecyclerHolder extends RecyclerViewHolder<RecyclerItem> {
     String noteTitle = data.getTitle();
     title.setText(noteTitle);
     title.setVisibility(noteTitle.isEmpty() ? GONE : VISIBLE);
+
+    title.setTypeface(FontUtilsKt.getTypeFace(context, null));
+    description.setTypeface(FontUtilsKt.getTypeFace(context, null));
 
     description.setText(data.getLockedText(context, isMarkdownEnabled));
 
